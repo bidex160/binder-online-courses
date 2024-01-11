@@ -2,17 +2,33 @@
   <img
     src="https://m.media-amazon.com/images/I/81ehEnDuFmL._AC_UL640_FMwebp_QL65_.jpg"
   />
-  <h2>The Complete Angular Developer Course</h2>
-  <h4 class="author">Author - John</h4>
-  <h3>{{ "#1,3444" }} <span> 10%</span></h3>
+  <h2>{{ course.courseName }}</h2>
+  <h4 class="author">Author - {{ course.author }}</h4>
+  <h3>
+    {{ course.actualPrice }}
+    <span *ngIf="discounted">
+      {{ course.discountPercentage }}
+    </span>
+  </h3>
   <div class="actions d-flex flex-column align-items-center">
-    <app-button text="Add To Cart" type="primary"></app-button>
-    <app-button text="Add to Wishlist" type="primary"></app-button>
+    <app-button
+      (mclick)="onAddToCart()"
+      text="Add To Cart"
+      type="primary"
+    ></app-button>
+    <app-button
+      (mclick)="onWishList()"
+      text="Add to Wishlist"
+      type="primary"
+    ></app-button>
   </div>
   <div class="details">
     <mat-icon>arrow_right_alt</mat-icon>
   </div>
-  <div class="tags">
+  <!-- @ngIf (course) {
+
+  } -->
+  <div *ngIf="course?.tags?.length" class="tags">
     tags: <span>{{ tags }}</span>
   </div>
 </div>
