@@ -1,0 +1,31 @@
+.menu-spacer {
+  flex: auto 1 1;
+}
+img {
+  height: 50px !important;
+  margin-right: 30px;
+}
+
+.menu {
+  background: transparent !important;
+}
+
+.close {
+  border-radius: 50% !important;
+  background: red !important;
+}
+.mat-drawer {
+  right: 0 !important;
+  padding: 0 15px !important;
+}
+.mclose {
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px 0;
+}
+.mclose mat-icon {
+  color: red !important;
+}
+.mdc-button__label {
+  font-size: 14px !important;
+}

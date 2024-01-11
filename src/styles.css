@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+
+@font-face {
+  font-family: "Judson";
+  src: url("./assets/fonts/Judson-Regular.ttf");
+}
+
+.mat-toolbar.mat-primary {
+  --mat-toolbar-container-background-color: #fff !important;
+  --mat-toolbar-container-text-color: #041654;
+  position: fixed;
+  z-index: 1000;
+}
+.mat-toolbar-multiple-rows {
+  min-height: 80px !important;
+  justify-content: center !important;
+}
+
+.booklist {
+  width: 90vw;
+  max-width: 1170px;
+  padding: 5rem 0;
+  display: grid;
+  gap: 2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .booklist {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+  }
+}
