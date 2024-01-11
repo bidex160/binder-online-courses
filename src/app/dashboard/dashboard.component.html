@@ -1,0 +1,19 @@
+<div class="banner">Discover Latest Courses on <br />Angular</div>
+<div class="course-section">
+  <div class="courses">
+    <ng-container *ngFor="let course of paginatedCourses; let i = index">
+      <app-course
+        [course]="course"
+        (cartEvent)="addToCart($event)"
+        (wishListEvent)="addToWishList($event)"
+      ></app-course>
+    </ng-container>
+  </div>
+  <mat-paginator
+    [length]="courses.length"
+    #paginator
+    [pageSizeOptions]="[4, 8, 12]"
+    [pageSize]="perPage"
+    showFirstLastButtons
+  ></mat-paginator>
+</div>

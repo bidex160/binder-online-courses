@@ -1,9 +1,20 @@
 <div>
   <app-header></app-header>
-  <div class="booklist">
-    <app-course></app-course>
-    <app-course></app-course>
-    <app-course></app-course>
-    <app-course></app-course>
-  </div>
+
+  <mat-sidenav-container fxFlexFill>
+    <mat-sidenav #sidenav>
+      <mat-nav-list>
+        <div class="mclose">
+          <mat-icon mat-list-item>close</mat-icon>
+        </div>
+        <div><a href="/" mat-button>Home</a></div>
+
+        <div><a href="/about-us" mat-button>About us</a></div>
+        <div><a href="/contact-us" mat-button>Contact us</a></div>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content fxFlexFill>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>
