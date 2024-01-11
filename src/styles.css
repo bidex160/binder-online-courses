@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
-
+/* @import "~bootstrap/dist/css/bootstrap.css";
+@import "~bootstrap-icons/font/bootstrap-icons.css"; */
 @font-face {
   font-family: "Judson";
   src: url("./assets/fonts/Judson-Regular.ttf");
@@ -33,4 +34,7 @@
 }
 .mat-drawer-container {
   padding-top: 90px;
+}
+.cdk-overlay-pane {
+  margin: 0 0 0 0 !important;
 }
