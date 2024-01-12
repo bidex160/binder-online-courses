@@ -1,0 +1,77 @@
+<ng-container [ngSwitch]="type" [formGroup]="form">
+  <!-- SELECT -->
+  <ng-container *ngSwitchCase="'select'">
+    <div class="dropdown" [ngClass]="{ readonly: readonly }">
+      <mat-select
+        class="myPanelClass"
+        [disableOptionCentering]="true"
+        [placeholder]="placeholder || 'Select'"
+        [formControlName]="name"
+        (click)="onSelect($event)"
+      >
+        <mat-option [value]="null">None</mat-option>
+        <mat-option *ngFor="let option of __option" [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </div>
+  </ng-container>
+  <!-- TEXTAREA -->
+  <ng-container *ngSwitchCase="'textarea'">
+    <div [class]="'input textarea'" [ngClass]="{ readonly: readonly }">
+      <textarea
+        [formControlName]="name"
+        [required]="required"
+        [readonly]="readonly"
+        (ionChange)="inputChange($event)"
+      ></textarea>
+    </div>
+  </ng-container>
+
+  <!-- PASSWORD -->
+  <ng-container *ngSwitchCase="'password'">
+    <div
+      [class]="'input passord-input'"
+      [ngClass]="{
+        readonly: readonly,
+      }"
+    >
+      <div class="d-flex">
+        <input
+          type="{{ showPassword ? 'text' : 'password' }}"
+          [formControlName]="name"
+          placeholder="{{ placeholder }}"
+          [required]="required"
+          [readonly]="readonly"
+          (ionChange)="inputChange($event)"
+          value="{{ __value }}"
+        />
+        <div class="password-icon" (click)="showPassword = !showPassword">
+          <i *ngIf="!showPassword" class="bi bi-lock-fill"></i>
+          <i *ngIf="showPassword" class="bi bi-unlock-fill"></i>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- DEFAULT -->
+  <ng-container *ngSwitchDefault>
+    <div
+      [class]="'input'"
+      [ngClass]="{
+        readonly: readonly,
+        grayborder: grayborder
+      }"
+    >
+      <input
+        *ngIf="!inputIcon"
+        [type]="type"
+        [placeholder]="placeholder"
+        [formControlName]="name"
+        [readonly]="readonly"
+        value="{{ __value }}"
+        (ionChange)="inputChange($event)"
+      />
+    </div>
+  </ng-container>
+</ng-container>

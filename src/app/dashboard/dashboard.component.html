@@ -1,5 +1,11 @@
 <div class="banner">Discover Latest Courses on <br />Angular</div>
 <div class="course-section">
+  <app-input
+    [form]="form"
+    name="search"
+    type="select"
+    [options]="filter"
+  ></app-input>
   <div class="courses">
     <ng-container *ngFor="let course of paginatedCourses; let i = index">
       <app-course
@@ -12,7 +18,7 @@
   <mat-paginator
     [length]="courses.length"
     #paginator
-    [pageSizeOptions]="[4, 8, 12]"
+    [hidePageSize]="true"
     [pageSize]="perPage"
     showFirstLastButtons
   ></mat-paginator>
