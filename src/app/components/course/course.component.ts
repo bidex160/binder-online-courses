@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Course } from '../../../models/course';
+import { Course, CourseButton } from '../../../models/course';
 
 @Component({
   selector: 'app-course',
@@ -8,8 +8,8 @@ import { Course } from '../../../models/course';
 })
 export class CourseComponent implements OnInit {
   @Input() course: Course;
-  @Output() cartEvent = new EventEmitter();
-  @Output() wishListEvent = new EventEmitter();
+  @Input() actions: CourseButton[] = [];
+  @Output() actionClicked = new EventEmitter();
 
   constructor() {}
 
@@ -25,19 +25,5 @@ export class CourseComponent implements OnInit {
     return (
       this.course.discountPercentage != '0' && this.course.discountPercentage
     );
-  }
-
-  /**
-   * on add to cart button click
-   */
-  onAddToCart() {
-    this.cartEvent.emit(this.course);
-  }
-
-  /**
-   * on add to wishlist button click
-   */
-  onWishList() {
-    this.wishListEvent.emit(this.course);
   }
 }

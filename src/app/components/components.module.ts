@@ -14,6 +14,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { ButtonComponent } from './button/button.component';
 import { AppInputComponent } from './app-input/app-input.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatSidenavModule,
     MatListModule,
     FlexLayoutModule,
+    MatDialogModule,
     ReactiveFormsModule,
   ],
   providers: [],

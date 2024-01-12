@@ -10,7 +10,8 @@ export class ButtonComponent {
   @Output() mclick: EventEmitter<any> = new EventEmitter();
   @Input() text: string = '';
   @Input() color: string = 'primary';
-  @Input('type') set _type(v: ButtonType) {
+  @Input() disabled: boolean = false;
+  @Input('type') set _type(v: ButtonType | undefined) {
     switch (v) {
       case 'primary':
         this._mclass = 'btn btn-primary';

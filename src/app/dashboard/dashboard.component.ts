@@ -6,7 +6,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { DashboardService } from '../../services/dashboard.service';
-import { Course } from '../../models/course';
+import { Course, CourseButton } from '../../models/course';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { FormControl, FormGroup } from '@angular/forms';
 import { StorageService } from '../../services/storage.service';
@@ -28,6 +28,19 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   filteredCourses: Course[] = [];
   pageIndex: number = 1;
   perPage: number = 4;
+
+  actions: CourseButton[] = [
+    {
+      text: 'Add to Cart',
+      type: 'primary',
+      action: (ev) => this.addToCart(ev),
+    },
+    {
+      text: 'Add the Wishlist',
+      type: 'primary',
+      action: (ev) => this.addToWishList(ev),
+    },
+  ];
 
   constructor(
     private dashboardService: DashboardService,
@@ -70,7 +83,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     }
   }
 
-  addToCart(course: Course) {
+  addToCart = (course: Course) => {
     let savedcart = this.storageService.getItem('cart');
     let cartList: Course[] = [course];
     if (savedcart) {
@@ -98,9 +111,9 @@ export class DashboardComponent implements OnInit, AfterViewInit {
         'success'
       );
     }
-  }
+  };
 
-  addToWishList(course: Course) {
+  addToWishList = (course: Course) => {
     let savedWishList = this.storageService.getItem('wishlist');
     let wishlist: Course[] = [course];
     if (savedWishList) {
@@ -127,7 +140,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
         'success'
       );
     }
-  }
+  };
 
   filterByPriceRnge(range: string) {
     if (range?.toLowerCase()?.includes('lowest')) {
