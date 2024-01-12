@@ -9,6 +9,8 @@ import { DashboardService } from '../../services/dashboard.service';
 import { Course } from '../../models/course';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { FormControl, FormGroup } from '@angular/forms';
+import { StorageService } from '../../services/storage.service';
+import { UtilityService } from '../../services/utils.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -29,13 +31,18 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   constructor(
     private dashboardService: DashboardService,
-    private cdref: ChangeDetectorRef
+    private cdref: ChangeDetectorRef,
+    private storageService: StorageService,
+    private utils: UtilityService
   ) {}
 
   ngOnInit(): void {
     this.dashboardService.fetchCourses();
     this.dashboardService.coursesSubject.subscribe(
-      (r) => (this.courses = [...r])
+      (r) =>
+        (this.courses = r.map((course: Course, index: number) => {
+          return { ...course, id: index };
+        }))
     );
   }
 
@@ -64,11 +71,62 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   }
 
   addToCart(course: Course) {
-    console.log(course);
+    let savedcart = this.storageService.getItem('cart');
+    let cartList: Course[] = [course];
+    if (savedcart) {
+      let findCourse = cartList.find(
+        (scourse: Course) => scourse.id == course.id
+      );
+      if (findCourse) {
+        this.utils.showSnackBar(
+          `Already exists in the cart.
+           \n ${course.courseName}`,
+          'error'
+        );
+      } else {
+        cartList = [...cartList, ...savedcart];
+        this.storageService.saveItem('cart', cartList);
+        this.utils.showSnackBar(
+          'Course successfully added in the cart',
+          'success'
+        );
+      }
+    } else {
+      this.storageService.saveItem('cart', cartList);
+      this.utils.showSnackBar(
+        'Course successfully added in the cart',
+        'success'
+      );
+    }
   }
 
   addToWishList(course: Course) {
-    console.log(course);
+    let savedWishList = this.storageService.getItem('wishlist');
+    let wishlist: Course[] = [course];
+    if (savedWishList) {
+      let findCourse = savedWishList.find(
+        (scourse: Course) => scourse.id == course.id
+      );
+      if (findCourse) {
+        this.utils.showSnackBar(
+          `Already exists in the wishlist. \n ${course.courseName}`,
+          'error'
+        );
+      } else {
+        wishlist = [...wishlist, ...savedWishList];
+        this.storageService.saveItem('wishlist', wishlist);
+        this.utils.showSnackBar(
+          'Course successfully added in the wishlist',
+          'success'
+        );
+      }
+    } else {
+      this.storageService.saveItem('wishlist', wishlist);
+      this.utils.showSnackBar(
+        'Course successfully added in the wishlist',
+        'success'
+      );
+    }
   }
 
   filterByPriceRnge(range: string) {

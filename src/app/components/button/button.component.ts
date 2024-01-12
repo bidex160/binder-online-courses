@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ButtonType } from '../index.model';
 
 @Component({
@@ -7,6 +7,7 @@ import { ButtonType } from '../index.model';
   styleUrl: './button.component.css',
 })
 export class ButtonComponent {
+  @Output() mclick: EventEmitter<any> = new EventEmitter();
   @Input() text: string = '';
   @Input() color: string = 'primary';
   @Input('type') set _type(v: ButtonType) {
@@ -33,4 +34,10 @@ export class ButtonComponent {
   }
   @Input() mclass: string;
   _mclass: string;
+
+  constructor() {}
+
+  click() {
+    this.mclick.emit();
+  }
 }

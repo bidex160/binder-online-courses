@@ -67,4 +67,6 @@
   background: #fff;
   margin: 40px 0 0 10px;
 }
-/* } */
+.mat-mdc-snack-bar-container {
+  position: absolute !important;
+}
