@@ -1,11 +1,20 @@
 <div class="banner">Checkout</div>
-<div class="row d-flex">
-  <div class="col-md-10 courses">
+<div class="row d-flex checkout">
+  <div class="col-md-7 courses">
     <ng-container *ngFor="let course of courses; let i = index">
       <app-course [course]="course" [actions]="actions"></app-course>
     </ng-container>
   </div>
   <div class="col-md-2">
-    <div class=""></div>
+    <div class="">
+      <h3>CART TOTALS</h3>
+      <p>Subtotal <span>₦20.00</span></p>
+      <h2>Total <span> ₦20.00</span></h2>
+      <app-button
+        (mclick)="proceedoCheckout()"
+        text="Proceed to Checkout"
+        [type]="'primary'"
+      ></app-button>
+    </div>
   </div>
 </div>

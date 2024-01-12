@@ -85,4 +85,6 @@ export class CheckoutComponent implements OnInit {
       );
     }
   };
+
+  proceedoCheckout() {}
 }

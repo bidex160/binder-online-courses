@@ -1,0 +1,27 @@
+@media (min-width: 768px) {
+  .courses {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+h3 {
+  font-size: 0.75rem;
+  color: #000;
+  text-align: end;
+}
+h2 {
+  font-size: 0.95rem;
+  color: #000;
+  font-weight: 800;
+  display: flex;
+  justify-content: space-between;
+}
+p {
+  font-size: 0.8rem;
+  color: #000;
+  font-weight: 400;
+  display: flex;
+  justify-content: space-between;
+}
+.checkout {
+  margin: 4rem 0;
+}
