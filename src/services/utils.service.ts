@@ -4,6 +4,7 @@ import {
   MatSnackBarHorizontalPosition,
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
+// import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Injectable({
   providedIn: 'root',
@@ -21,4 +22,21 @@ export class UtilityService {
       panelClass: 'panelClass',
     });
   }
+
+  // modal(modal: any, data: any, res: (res: any) => any) {
+  //   this.dialog
+  //     .open(modal, {
+  //       width: 'auto',
+  //       height: 'auto',
+  //       data: data,
+  //     })
+  //     .afterClosed()
+  //     .subscribe((r) => {
+  //       console.log(r);
+  //     });
+  // }
+
+  // closeModal() {
+  //   this.dialogRef.close();
+  // }
 }

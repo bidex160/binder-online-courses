@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Course, CourseButton } from '../../models/course';
 import { StorageService } from '../../services/storage.service';
-import e from 'express';
 import { UtilityService } from '../../services/utils.service';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-checkout',
@@ -26,7 +26,8 @@ export class CheckoutComponent implements OnInit {
 
   constructor(
     private storageService: StorageService,
-    private utils: UtilityService
+    private utils: UtilityService,
+    public dialog: MatDialog
   ) {}
   ngOnInit(): void {
     this.fetchCartCourses();
