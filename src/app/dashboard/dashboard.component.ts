@@ -74,7 +74,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     let savedcart = this.storageService.getItem('cart');
     let cartList: Course[] = [course];
     if (savedcart) {
-      let findCourse = cartList.find(
+      let findCourse = savedcart.find(
         (scourse: Course) => scourse.id == course.id
       );
       if (findCourse) {
