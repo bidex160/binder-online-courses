@@ -38,6 +38,6 @@ export class CourseComponent implements OnInit {
    * on add to wishlist button click
    */
   onWishList() {
-    this.cartEvent.emit(this.course);
+    this.wishListEvent.emit(this.course);
   }
 }

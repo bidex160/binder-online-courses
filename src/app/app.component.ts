@@ -6,6 +6,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
     CommonModule,
     RouterOutlet,
     ComponentsModule,
-    // BrowserAnimationsModule,
+    MatSnackBarModule,
     MatToolbarModule,
     MatSidenavModule,
     MatIconModule,

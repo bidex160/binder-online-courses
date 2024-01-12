@@ -6,6 +6,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardService } from '../../services/dashboard.service';
 import { NetworkService } from '../../services/network.service';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [DashboardComponent],
@@ -14,6 +15,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     ComponentsModule,
     DashboardRoutingModule,
     MatPaginatorModule,
+    MatIconModule,
   ],
   providers: [DashboardService, NetworkService],
 })

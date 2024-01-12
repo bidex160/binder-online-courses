@@ -14,23 +14,24 @@
   position: fixed;
   z-index: 1000;
 }
+.mat-toolbar-row {
+  padding: 0 4rem !important;
+}
 .mat-toolbar-multiple-rows {
   min-height: 80px !important;
   justify-content: center !important;
 }
 .course-section {
+  padding: 5rem;
 }
 .courses {
-  width: 90vw;
-  max-width: 1170px;
-  padding: 5rem 0;
   display: grid;
   gap: 2rem;
 }
 
 @media screen and (min-width: 768px) {
   .courses {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     align-items: start;
   }
 }
@@ -69,4 +70,6 @@
   background: #fff;
   margin: 40px 0 0 10px;
 }
-/* } */
+.mat-mdc-snack-bar-container {
+  position: absolute !important;
+}

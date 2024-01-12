@@ -4,10 +4,16 @@
     <span class="menu-spacer"></span>
     <div fxShow="true" fxHide.lt-md>
       <!-- The following menu items will be hidden on both SM and XS screen sizes -->
-      <a href="/courses" mat-button>Courses</a>
+      <a href="#courses" mat-button>Courses</a>
       <a href="/wish-list" mat-button>My Wish List</a>
       <a href="/cart-details" mat-button>Cart Details</a>
       <a href="/profile" mat-button> My Profile</a>
+    </div>
+    <div class="d-flex align-items-center">
+      <div class="cart" href="/cart-details">
+        <mat-icon>shopping_cart</mat-icon>
+        <span> {{ cartCount }}</span>
+      </div>
     </div>
     <button class="menu" mat-icon-button fxShow="true" fxHide.gt-sm>
       <mat-icon>menu</mat-icon>

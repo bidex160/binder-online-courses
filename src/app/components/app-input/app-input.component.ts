@@ -67,11 +67,12 @@ export class AppInputComponent implements OnInit {
     this.__value = this.form.controls[this.name].value;
   }
 
-  onSelect(value: any) {
+  onSelect(event: any) {
+    let value = event.value;
     this.mchange.emit(value);
     let patch: any = {};
     patch[this.name] = value;
-    this.form.patchValue(patch);
+    this.form.patchValue(value);
     this.focused = !this.focused;
   }
 }

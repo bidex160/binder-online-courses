@@ -1,11 +1,26 @@
 <div class="banner">Discover Latest Courses on <br />Angular</div>
 <div class="course-section">
-  <app-input
-    [form]="form"
-    name="search"
-    type="select"
-    [options]="filter"
-  ></app-input>
+  <div class="row d-flex justify-content-end">
+    <div class="col-md-3">
+      <app-input
+        [form]="form"
+        name="search"
+        type="text"
+        placeholder="Search..."
+      ></app-input>
+    </div>
+    <div class="col-md-2">
+      <app-input
+        placeholder="Price Range"
+        [form]="form"
+        name="priceRange"
+        type="select"
+        [options]="filter"
+        (mchange)="filterByPriceRnge($event)"
+      ></app-input>
+    </div>
+  </div>
+
   <div class="courses">
     <ng-container *ngFor="let course of paginatedCourses; let i = index">
       <app-course
