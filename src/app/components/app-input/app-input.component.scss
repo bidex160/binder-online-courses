@@ -20,10 +20,9 @@ input[type="checkbox"]:checked {
 }
 input {
   --webkit-transform: translateZ(0) !important;
-  // --padding-top: 5px !important;
-  --padding-start: 16px !important;
-  --padding-end: 16px !important;
-  padding: 0 16 !important;
+  padding: 0 16px !important;
+  height: 40px;
+  width: 100%;
   --placeholder-color: #858585;
   font-size: 12px;
 }

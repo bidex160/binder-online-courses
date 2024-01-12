@@ -19,9 +19,11 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   @ViewChild('paginator') paginator: MatPaginator;
   form: FormGroup = new FormGroup({
     search: new FormControl(),
+    priceRange: new FormControl(),
   });
-  filter: any[] = ['Yes', 'No'];
+  filter: any[] = ['Lowest', 'Highest'];
   courses: Course[] = [];
+  filteredCourses: Course[] = [];
   pageIndex: number = 1;
   perPage: number = 4;
 
@@ -67,5 +69,22 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   addToWishList(course: Course) {
     console.log(course);
+  }
+
+  filterByPriceRnge(range: string) {
+    if (range?.toLowerCase()?.includes('lowest')) {
+      this.courses.sort((a, b) => {
+        let prevPrice = a.actualPrice.slice(1);
+        let nextPrice = b.actualPrice.slice(1);
+        console.log(prevPrice, nextPrice);
+        return parseFloat(prevPrice) - parseFloat(nextPrice);
+      });
+    } else {
+      this.courses.sort((a, b) => {
+        let prevPrice = a.actualPrice.slice(1);
+        let nextPrice = b.actualPrice.slice(1);
+        return parseFloat(nextPrice) - parseFloat(prevPrice);
+      });
+    }
   }
 }
