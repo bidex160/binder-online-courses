@@ -11,23 +11,17 @@
     </span>
   </h3>
   <div class="actions d-flex flex-column align-items-center">
-    <app-button
-      (mclick)="onAddToCart()"
-      text="Add To Cart"
-      type="primary"
-    ></app-button>
-    <app-button
-      (mclick)="onWishList()"
-      text="Add to Wishlist"
-      type="primary"
-    ></app-button>
+    <ng-container *ngFor="let action of actions">
+      <app-button
+        (mclick)="action.action ? action.action(course) : null"
+        text="{{ action.text }}"
+        [type]="action.type"
+      ></app-button>
+    </ng-container>
   </div>
   <div class="details">
     <mat-icon>arrow_right_alt</mat-icon>
   </div>
-  <!-- @ngIf (course) {
-
-  } -->
   <div *ngIf="course?.tags?.length" class="tags">
     tags: <span>{{ tags }}</span>
   </div>

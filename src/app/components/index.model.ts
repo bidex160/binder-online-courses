@@ -14,3 +14,9 @@ export type ButtonType =
   | 'outline'
   | 'danger'
   | 'success';
+
+  export type CourseAction =
+    | 'cart'
+    | 'wishlist'
+    | 'removeCart'
+    | 'removeWishList';

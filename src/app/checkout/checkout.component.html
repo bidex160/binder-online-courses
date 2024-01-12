@@ -1,0 +1,11 @@
+<div class="banner">Checkout</div>
+<div class="row d-flex">
+  <div class="col-md-10 courses">
+    <ng-container *ngFor="let course of courses; let i = index">
+      <app-course [course]="course" [actions]="actions"></app-course>
+    </ng-container>
+  </div>
+  <div class="col-md-2">
+    <div class=""></div>
+  </div>
+</div>
