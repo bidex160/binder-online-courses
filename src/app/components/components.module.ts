@@ -12,9 +12,16 @@ import { MatListModule } from '@angular/material/list';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatSelectModule } from '@angular/material/select';
 import { ButtonComponent } from './button/button.component';
+import { AppInputComponent } from './app-input/app-input.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [HeaderComponent, CourseComponent, ButtonComponent],
+  declarations: [
+    HeaderComponent,
+    CourseComponent,
+    ButtonComponent,
+    AppInputComponent,
+  ],
   imports: [
     CommonModule,
     MatSelectModule,
@@ -24,8 +31,14 @@ import { ButtonComponent } from './button/button.component';
     MatSidenavModule,
     MatListModule,
     FlexLayoutModule,
+    ReactiveFormsModule,
   ],
   providers: [],
-  exports: [HeaderComponent, CourseComponent, ButtonComponent],
+  exports: [
+    HeaderComponent,
+    CourseComponent,
+    ButtonComponent,
+    AppInputComponent,
+  ],
 })
 export class ComponentsModule {}
