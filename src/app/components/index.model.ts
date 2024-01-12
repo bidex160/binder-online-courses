@@ -4,13 +4,9 @@ export type InputType =
   | 'select'
   | 'number'
   | 'text'
-  | 'checkbox'
-  | 'radio'
   | 'password'
   | 'email'
-  | 'date'
-  | 'textarea'
-  | 'address';
+  | 'textarea';
 
 export type ButtonType =
   | 'primary'

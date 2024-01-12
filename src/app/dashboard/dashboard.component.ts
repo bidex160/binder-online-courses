@@ -8,6 +8,7 @@ import {
 import { DashboardService } from '../../services/dashboard.service';
 import { Course } from '../../models/course';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,8 +17,12 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
 })
 export class DashboardComponent implements OnInit, AfterViewInit {
   @ViewChild('paginator') paginator: MatPaginator;
+  form: FormGroup = new FormGroup({
+    search: new FormControl(),
+  });
+  filter: any[] = ['Yes', 'No'];
   courses: Course[] = [];
-  pageIndex: number = 0;
+  pageIndex: number = 1;
   perPage: number = 4;
 
   constructor(
@@ -34,7 +39,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.paginator.page.subscribe((r) => {
-      console.log(r);
       this.pageIndex = r.pageIndex + 1;
     });
 
