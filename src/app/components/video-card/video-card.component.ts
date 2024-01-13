@@ -8,7 +8,13 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrl: './video-card.component.css',
 })
 export class VideoCardComponent implements OnInit, OnInit {
+  /**
+   * Video card course contents
+   */
   @Input() course: Course | undefined;
+  /**
+   * Action button's on the video card
+   */
   @Input() actions: CourseButton[] = [];
   interval: any;
   form: FormGroup = new FormGroup({
@@ -22,12 +28,17 @@ export class VideoCardComponent implements OnInit, OnInit {
     }, 1000);
   }
 
+  /**
+   * get if course is discounted
+   */
   get discounted() {
     return (
       this.course?.discountPercentage != '0' && this.course?.discountPercentage
     );
   }
-
+  /**
+   * check if the course has discount and the coundown is less than 24hrs
+   */
   get showCountDown() {
     let h = Math.floor(this.timer / 3600);
     return (
@@ -37,6 +48,9 @@ export class VideoCardComponent implements OnInit, OnInit {
     );
   }
 
+  /**
+   * get time in real time
+   */
   get timer() {
     let date = new Date();
     let second = date.getSeconds();
@@ -48,12 +62,19 @@ export class VideoCardComponent implements OnInit, OnInit {
     return leftHour * 3600 + leftMinute * 60 + leftSeconds;
   }
 
+  /**
+   * get time left for the discounted price
+   */
   get timeLeft() {
     return `${this.form.value.hour} ${
       this.form.value.hour > 1 ? 'hours' : 'hour'
     }  left at this price!`;
   }
 
+  /**
+   * update countdown realtime
+   * set the updated hour value in form control
+   */
   updateTimer() {
     let h = Math.floor(this.timer / 3600);
     this.form.patchValue({ hour: h });
@@ -61,6 +82,9 @@ export class VideoCardComponent implements OnInit, OnInit {
 
   playVideo() {}
 
+  /**
+   * clear interval on screen destroy
+   */
   ngOnDestroy(): void {
     if (this.interval) clearInterval(this.interval);
   }

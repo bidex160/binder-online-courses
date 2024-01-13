@@ -17,6 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { RouterModule } from '@angular/router';
 import { VideoCardComponent } from './video-card/video-card.component';
+import { ResponseModalComponent } from './response-modal/response-modal.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { VideoCardComponent } from './video-card/video-card.component';
     CourseComponent,
     ButtonComponent,
     AppInputComponent,
-    VideoCardComponent
+    VideoCardComponent,
+    ResponseModalComponent,
   ],
   imports: [
     CommonModule,
@@ -46,6 +48,7 @@ import { VideoCardComponent } from './video-card/video-card.component';
     ButtonComponent,
     VideoCardComponent,
     AppInputComponent,
+    ResponseModalComponent,
   ],
 })
 export class ComponentsModule {}

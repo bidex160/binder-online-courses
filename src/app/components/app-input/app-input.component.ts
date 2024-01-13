@@ -8,36 +8,91 @@ import { InputType } from '../index.model';
   styleUrls: ['./app-input.component.scss'],
 })
 export class AppInputComponent implements OnInit {
-  @Input() inpCl: string;
+  /**
+   * button type
+   */
   @Input() type: InputType;
+  /**
+   * form control name
+   */
   @Input() name: string;
+  /**
+   * input label
+   */
   @Input() label: string;
+  /**
+   * input placeholder
+   */
   @Input() placeholder: string = '';
+  /**
+   * formgroup to assign reactive formcontrol to input
+   */
   @Input() form: FormGroup;
+  /**
+   * to make input required for user
+   */
   @Input() required: boolean = false;
+  /**
+   * to make input readonly for user
+   */
   @Input() readonly: boolean = false;
+  /**
+   * it is applicable to radio and checkbox for multiple choice answer
+   */
   @Input() multipleChoice: boolean = false;
+  /**
+   * it is applicable to select input to format value field from options
+   */
   @Input() valueField: string;
+  /**
+   * it is applicable to select input to format lable field from options
+   */
   @Input() labelField: string;
+
   @Input() inputIcon: string;
+  /**
+   * input max length
+   */
   @Input() maxlength: string;
-  @Input() grayborder: boolean = false;
+
   __option: any[] = [];
+  /**
+   * select dropdowm options
+   * it format the raw options to desired output
+   * assign the formatted options to __option
+   */
   @Input('options') set _option(v: any[]) {
     this.__option = this.formatOption(v);
   }
   __value: string | number;
+
+  /**
+   * default / initial value for input
+   * assign the value to __value
+   */
   @Input('mvalue') set _value(v: string | number) {
     this.__value = v;
   }
+  /**
+   * to switch select dropdown state
+   */
   focused: boolean = false;
+  /**
+   * to toggle password value
+   */
   showPassword: boolean = false;
+  /**
+   * output input change event
+   */
   @Output() mchange: EventEmitter<any> = new EventEmitter();
 
   constructor() {}
 
   ngOnInit() {}
 
+  /**
+   * get if radio / checkbox is checked if value is passed
+   */
   get isChecked() {
     if (this.multipleChoice)
       return this.form?.controls[this.name]?.value
@@ -46,6 +101,11 @@ export class AppInputComponent implements OnInit {
     else return this.__value == this.form?.controls[this.name]?.value;
   }
 
+  /**
+   * format select options e.g label and value from option object
+   * @param options select dropdwon options
+   * @returns formatted options
+   */
   formatOption = (options: any[]) => {
     let format = options.map((r, i) => {
       let value;
@@ -67,6 +127,11 @@ export class AppInputComponent implements OnInit {
     return format;
   };
 
+  /**
+   * handle input change
+   * @param event input event on input changed
+   * @returns
+   */
   inputChange(event: any) {
     if (this.type == 'radio' || this.type == 'checkbox') {
       let value = this.multipleChoice
@@ -89,6 +154,10 @@ export class AppInputComponent implements OnInit {
     this.__value = this.form.controls[this.name].value;
   }
 
+  /**
+   * handle option select
+   * @param event on select event from dropdown
+   */
   onSelect(event: any) {
     let value = event.value;
     this.mchange.emit(value);

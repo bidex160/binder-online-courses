@@ -3,6 +3,7 @@ import { Course, CourseButton } from '../../models/course';
 import { StorageService } from '../../services/storage.service';
 import { UtilityService } from '../../services/utils.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { ResponseModalComponent } from '../components/response-modal/response-modal.component';
 
 @Component({
   selector: 'app-checkout',
@@ -87,5 +88,14 @@ export class CheckoutComponent implements OnInit {
     }
   };
 
-  proceedoCheckout() {}
+  proceedoCheckout() {
+    this.dialog.open(ResponseModalComponent, {
+      width: '40vw',
+      height: 'auto',
+      data: {
+        type: 1,
+        message: 'Order Placed Succesfully!',
+      },
+    });
+  }
 }

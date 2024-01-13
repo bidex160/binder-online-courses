@@ -115,3 +115,8 @@
     --mdc-snackbar-supporting-text-color: #fff;
   }
 }
+.cdk-global-overlay-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
