@@ -51,10 +51,10 @@ export class CheckoutComponent implements OnInit {
       this.storageService.saveItem('cart', filterCourse);
       this.utils.showSnackBar(
         `Course successfully removed in the cart. \n ${course.courseName}`,
-        'error'
+        'danger'
       );
     } else {
-      this.utils.showSnackBar('Course not found', 'error');
+      this.utils.showSnackBar('Course not found', 'warning');
     }
   };
 
@@ -68,7 +68,7 @@ export class CheckoutComponent implements OnInit {
       if (findCourse) {
         this.utils.showSnackBar(
           `Already exists in the wishlist. \n ${course.courseName}`,
-          'error'
+          'danger'
         );
       } else {
         wishlist = [...wishlist, ...savedWishList];

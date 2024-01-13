@@ -28,6 +28,15 @@ export class VideoCardComponent implements OnInit, OnInit {
     );
   }
 
+  get showCountDown() {
+    let h = Math.floor(this.timer / 3600);
+    return (
+      this.course?.discountPercentage != '0' &&
+      this.course?.discountPercentage &&
+      h < 24
+    );
+  }
+
   get timer() {
     let date = new Date();
     let second = date.getSeconds();

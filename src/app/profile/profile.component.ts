@@ -44,7 +44,7 @@ export class ProfileComponent implements OnInit {
       this.storageService.saveItem('profile', this.form.value);
       this.utils.showSnackBar('Your profile is updated.', 'success');
     } catch (er) {
-      this.utils.showSnackBar('Please try again', 'error');
+      this.utils.showSnackBar('Please try again', 'danger');
     }
   }
 }

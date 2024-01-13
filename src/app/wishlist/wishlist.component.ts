@@ -67,7 +67,7 @@ export class WishlistComponent implements OnInit {
         this.utils.showSnackBar(
           `Already exists in the cart.
            \n ${course.courseName}`,
-          'error'
+          'danger'
         );
       } else {
         cartList = [...cartList, ...savedcart];
@@ -100,10 +100,10 @@ export class WishlistComponent implements OnInit {
       this.storageService.saveItem('wishlist', filterCourse);
       this.utils.showSnackBar(
         `Course successfully removed in the wish list. \n ${course.courseName}`,
-        'error'
+        'danger'
       );
     } else {
-      this.utils.showSnackBar('Course not found', 'error');
+      this.utils.showSnackBar('Course not found', 'warning');
     }
   };
 }
