@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
 import { HeaderComponent } from './header/header.component';
 import { CourseComponent } from './course/course.component';
 import { CommonModule } from '@angular/common';
@@ -18,6 +16,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { RouterModule } from '@angular/router';
 import { VideoCardComponent } from './video-card/video-card.component';
 import { ResponseModalComponent } from './response-modal/response-modal.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +26,7 @@ import { ResponseModalComponent } from './response-modal/response-modal.componen
     AppInputComponent,
     VideoCardComponent,
     ResponseModalComponent,
+    LoginComponent,
   ],
   imports: [
     CommonModule,
@@ -48,6 +48,7 @@ import { ResponseModalComponent } from './response-modal/response-modal.componen
     ButtonComponent,
     VideoCardComponent,
     AppInputComponent,
+    LoginComponent,
     ResponseModalComponent,
   ],
 })

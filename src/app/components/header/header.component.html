@@ -7,7 +7,8 @@
       <a href="#courses" mat-button>Courses</a>
       <a href="/wish-list" mat-button>My Wish List</a>
       <a href="/cart-details" mat-button>Cart Details</a>
-      <a href="/profile" mat-button> My Profile</a>
+      <a href="/profile" *ngIf="isLoggedIn" mat-button> My Profile</a>
+      <a (click)="login()" *ngIf="!isLoggedIn" mat-button> Login</a>
     </div>
     <div class="d-flex align-items-center">
       <div class="cart" [routerLink]="['/cart-details']">
