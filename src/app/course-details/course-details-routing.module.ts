@@ -6,6 +6,16 @@ const routes: Routes = [
   {
     path: '',
     component: CourseDetailsComponent,
+    // children: [
+    //   {
+    //     path: '',
+    //     component: CourseDetailsComponent,
+    //   },
+    //   {
+    //     path: ':id',
+    //     component: CourseDetailsComponent,
+    //   },
+    // ],
   },
 ];
 @NgModule({

@@ -1,9 +1,7 @@
-<div class="book">
-  <img
-    src="https://m.media-amazon.com/images/I/81ehEnDuFmL._AC_UL640_FMwebp_QL65_.jpg"
-  />
+<div class="video-card" *ngIf="course">
+  <img src="assets/imgs/thumbnail.png" (click)="playVideo()" />
+
   <h2>{{ course.courseName }}</h2>
-  <h4 class="author">Author - {{ course.author }}</h4>
   <h3>
     {{ course.actualPrice }}
     <span *ngIf="discounted">
@@ -19,10 +17,5 @@
       ></app-button>
     </ng-container>
   </div>
-  <div class="details">
-    <mat-icon [routerLink]="['/course-details']" [queryParams]="{ id: course.id }">arrow_right_alt</mat-icon>
-  </div>
-  <div *ngIf="course?.tags?.length" class="tags">
-    tags: <span>{{ tags }}</span>
-  </div>
+  <p *ngIf="discounted">{{ timeLeft }}</p>
 </div>
