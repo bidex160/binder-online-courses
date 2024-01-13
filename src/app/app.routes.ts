@@ -21,4 +21,9 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./profile/profile.module').then((m) => m.ProfileModule),
   },
+  {
+    path: 'wish-list',
+    loadChildren: () =>
+      import('./wishlist/wishlist.module').then((m) => m.WishListModule),
+  },
 ];
