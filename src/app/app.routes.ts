@@ -26,4 +26,11 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./wishlist/wishlist.module').then((m) => m.WishListModule),
   },
+  {
+    path: 'course-details',
+    loadChildren: () =>
+      import('./course-details/course-details.module').then(
+        (m) => m.CourseDetailsModule
+      ),
+  },
 ];

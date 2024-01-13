@@ -15,6 +15,7 @@ import { ButtonComponent } from './button/button.component';
 import { AppInputComponent } from './app-input/app-input.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     FlexLayoutModule,
     MatDialogModule,
     ReactiveFormsModule,
+    RouterModule,
   ],
   providers: [],
   exports: [
