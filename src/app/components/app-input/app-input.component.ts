@@ -12,13 +12,15 @@ export class AppInputComponent implements OnInit {
   @Input() type: InputType;
   @Input() name: string;
   @Input() label: string;
-  @Input() placeholder: string;
+  @Input() placeholder: string = '';
   @Input() form: FormGroup;
   @Input() required: boolean = false;
   @Input() readonly: boolean = false;
+  @Input() multipleChoice: boolean = false;
   @Input() valueField: string;
   @Input() labelField: string;
   @Input() inputIcon: string;
+  @Input() maxlength: string;
   @Input() grayborder: boolean = false;
   __option: any[] = [];
   @Input('options') set _option(v: any[]) {
@@ -35,6 +37,14 @@ export class AppInputComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  get isChecked() {
+    if (this.multipleChoice)
+      return this.form?.controls[this.name]?.value
+        ?.toLowerCase()
+        ?.includes(this.__value.toString().toLowerCase());
+    else return this.__value == this.form?.controls[this.name]?.value;
+  }
 
   formatOption = (options: any[]) => {
     let format = options.map((r, i) => {
@@ -58,6 +68,18 @@ export class AppInputComponent implements OnInit {
   };
 
   inputChange(event: any) {
+    if (this.type == 'radio' || this.type == 'checkbox') {
+      let value = this.multipleChoice
+        ? this.form.controls[this.name].value
+          ? `${this.form.controls[this.name].value}, ${event.__value}`
+          : `${event.__value}`
+        : event.__value;
+
+      this.mchange.emit(value);
+
+      this.form.controls[this.name].patchValue(value);
+      return;
+    }
     if (this.type == 'select') {
       if (event.target.value) this.mchange.emit(event.target.value);
       return;

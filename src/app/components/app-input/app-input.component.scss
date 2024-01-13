@@ -9,8 +9,8 @@
   margin-right: 16px;
 }
 
-input[type="checkbox"]:checked {
-  position: relative;
+input[type="radio"] {
+  width: auto !important;
 }
 .stacked {
   --padding-bottom: 0;
@@ -18,13 +18,28 @@ input[type="checkbox"]:checked {
   --padding-start: 0;
   --padding-top: -12px !important;
 }
-input {
+input,
+textarea {
   --webkit-transform: translateZ(0) !important;
-  padding: 0 16px !important;
-  height: 40px;
+  padding: 10px 16px !important;
   width: 100%;
+  border: 1px solid #555 !important;
+  border-radius: 10px;
   --placeholder-color: #858585;
   font-size: 12px;
+}
+input:focus,
+textarea:focus {
+  outline: none !important;
+  border: 1px solid #9276e0 !important;
+}
+.radio,
+.checkbox {
+  width: auto;
+}
+.radio label,
+.checkbox label {
+  margin-left: 10px;
 }
 select {
   --webkit-transform: translateZ(0) !important;
@@ -45,15 +60,8 @@ mat-select {
 .mat-mdc-select-trigger {
   padding: 14px 31px !important;
 }
-.input {
-  height: 40px;
-  border-radius: 10px;
-  border: 1px solid #9276e0;
-  //  padding: 0 16px;
-  background: #fff;
-}
-.textarea {
-  height: auto !important;
+textarea {
+  width: 100% !important;
 }
 
 .checkbox {
@@ -63,9 +71,8 @@ mat-select {
   border: 1px solid gray !important;
 }
 
-.input_checkbox {
-  display: flex;
-  margin-bottom: 16px;
+.input {
+  margin-bottom: 12px;
 }
 
 input:-webkit-autofill,
