@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { Course } from '../../../models/course';
 import { StorageService } from '../../../services/storage.service';
+import { UtilityService } from '../../../services/utils.service';
+import { LoginComponent } from '../login/login.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +11,11 @@ import { StorageService } from '../../../services/storage.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  constructor(private storageService: StorageService) {}
+  constructor(
+    private storageService: StorageService,
+    private utils: UtilityService,
+    public dialog: MatDialog
+  ) {}
 
   /**
    * get  number cart items from local storage
@@ -18,5 +25,13 @@ export class HeaderComponent {
     let savedcart: Course[] = this.storageService.getItem('cart');
     if (savedcart && savedcart?.length) return savedcart.length;
     return '';
+  }
+
+  get isLoggedIn() {
+    return !!this.utils.isLoggedIn;
+  }
+
+  login() {
+    this.dialog.open(LoginComponent, {});
   }
 }
