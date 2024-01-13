@@ -9,7 +9,7 @@
         placeholder="Search..."
       ></app-input>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-3">
       <app-input
         placeholder="Price Range"
         [form]="form"
@@ -29,7 +29,7 @@
   <mat-paginator
     [length]="courses.length"
     #paginator
-    [hidePageSize]="true"
+    [pageSizeOptions]="[4, 8, 12]"
     [pageSize]="perPage"
     showFirstLastButtons
   ></mat-paginator>

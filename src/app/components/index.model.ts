@@ -22,3 +22,5 @@ export type CourseAction =
   | 'wishlist'
   | 'removeCart'
   | 'removeWishList';
+
+export type MessageType = 'success' | 'danger' | 'warning';

@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="modal_body" [ngClass]="{ body_error: data.type == 2 }">
+    <div class="head" *ngIf="data.type == 2">
+      <div class="close" (click)="closeModal()">
+        <mat-icon>close</mat-icon>
+      </div>
+    </div>
+    <div class="icon" [ngClass]="{ error_icon: data.type == 2 }">
+      <mat-icon *ngIf="data.type == 2">close</mat-icon>
+      <mat-icon *ngIf="data.type == 1">done</mat-icon>
+    </div>
+    <div class="content" [ngClass]="{ content_error: data.type == 2 }">
+      <h2>SUCCESS</h2>
+      <p>
+        {{ data.message }}
+      </p>
+    </div>
+
+    <app-button
+      *ngIf="data.type == 1"
+      [type]="'success'"
+      text="Continue"
+      (mclick)="closeModal(true)"
+    />
+  </div>
+</div>

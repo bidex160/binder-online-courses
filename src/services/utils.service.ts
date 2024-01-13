@@ -4,6 +4,7 @@ import {
   MatSnackBarHorizontalPosition,
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
+import { MessageType } from '../app/components/index.model';
 // import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Injectable({
@@ -14,12 +15,13 @@ export class UtilityService {
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
   constructor(private snackBar: MatSnackBar) {}
 
-  showSnackBar(message: string, type: string) {
+  showSnackBar(message: string, type: MessageType) {
+    console.log(type);
     this.snackBar.open(message, undefined, {
       duration: 1000,
       horizontalPosition: 'start',
       verticalPosition: 'bottom',
-      panelClass: 'panelClass',
+      panelClass: type,
     });
   }
 

@@ -8,7 +8,8 @@
   <mat-paginator
     [length]="wishlist.length"
     #paginator
-    [hidePageSize]="true"
+    [hidePageSize]="false"
+     [pageSizeOptions]="[4, 8, 12]"
     [pageSize]="perPage"
     showFirstLastButtons
   ></mat-paginator>

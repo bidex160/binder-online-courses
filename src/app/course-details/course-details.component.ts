@@ -44,9 +44,7 @@ export class CourseDetailsComponent implements OnInit {
           })
           .find((course) => course.id == this.courseId) || undefined;
     });
-  
   }
- 
 
   addToCart = (course: Course) => {
     let savedcart = this.storageService.getItem('cart');
@@ -59,7 +57,7 @@ export class CourseDetailsComponent implements OnInit {
         this.utils.showSnackBar(
           `Already exists in the cart.
            \n ${course.courseName}`,
-          'error'
+          'danger'
         );
       } else {
         cartList = [...cartList, ...savedcart];
@@ -88,7 +86,7 @@ export class CourseDetailsComponent implements OnInit {
       if (findCourse) {
         this.utils.showSnackBar(
           `Already exists in the wishlist. \n ${course.courseName}`,
-          'error'
+          'danger'
         );
       } else {
         wishlist = [...wishlist, ...savedWishList];

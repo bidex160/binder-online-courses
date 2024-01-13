@@ -7,10 +7,23 @@ import { ButtonType } from '../index.model';
   styleUrl: './button.component.css',
 })
 export class ButtonComponent {
+  /**
+   * Optional click handler
+   */
   @Output() mclick: EventEmitter<any> = new EventEmitter();
+
+  /**
+   * Button contents
+   *
+   */
   @Input() text: string = '';
-  @Input() color: string = 'primary';
+  /**
+   *
+   */
   @Input() disabled: boolean = false;
+  /**
+   * button type e.g primary
+   */
   @Input('type') set _type(v: ButtonType | undefined) {
     switch (v) {
       case 'primary':
@@ -33,11 +46,17 @@ export class ButtonComponent {
         break;
     }
   }
+  /**
+   * extra class to be added to the button
+   */
   @Input() mclass: string;
   _mclass: string;
 
   constructor() {}
 
+  /**
+   * emit click event through event emitter
+   */
   click() {
     this.mclick.emit();
   }

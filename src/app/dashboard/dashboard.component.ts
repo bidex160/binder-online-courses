@@ -54,6 +54,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.paginator.page.subscribe((r) => {
+      this.perPage = r.pageSize;
       this.pageIndex = r.pageIndex + 1;
     });
   }
@@ -85,7 +86,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
         this.utils.showSnackBar(
           `Already exists in the cart.
            \n ${course.courseName}`,
-          'error'
+          'danger'
         );
       } else {
         cartList = [...cartList, ...savedcart];
@@ -114,7 +115,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       if (findCourse) {
         this.utils.showSnackBar(
           `Already exists in the wishlist. \n ${course.courseName}`,
-          'error'
+          'danger'
         );
       } else {
         wishlist = [...wishlist, ...savedWishList];
