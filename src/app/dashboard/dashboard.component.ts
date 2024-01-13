@@ -1,10 +1,5 @@
-import {
-  AfterViewInit,
-  Component,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
-import { DashboardService } from '../../services/dashboard.service';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { CourseService } from '../../services/course.service';
 import { Course, CourseButton } from '../../models/course';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { FormControl, FormGroup } from '@angular/forms';
@@ -42,14 +37,14 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   ];
 
   constructor(
-    private dashboardService: DashboardService,
+    private courseService: CourseService,
     private storageService: StorageService,
     private utils: UtilityService
   ) {}
 
   ngOnInit(): void {
-    this.dashboardService.fetchCourses();
-    this.dashboardService.coursesSubject.subscribe(
+    this.courseService.fetchCourses();
+    this.courseService.coursesSubject.subscribe(
       (r) =>
         (this.courses = r.map((course: Course, index: number) => {
           return { ...course, id: index };

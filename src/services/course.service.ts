@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class DashboardService {
+export class CourseService {
   coursesSubject: BehaviorSubject<any> = new BehaviorSubject([]);
   constructor(private networkService: NetworkService) {}
 

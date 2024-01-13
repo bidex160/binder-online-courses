@@ -16,6 +16,7 @@ import { AppInputComponent } from './app-input/app-input.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { RouterModule } from '@angular/router';
+import { VideoCardComponent } from './video-card/video-card.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { RouterModule } from '@angular/router';
     CourseComponent,
     ButtonComponent,
     AppInputComponent,
+    VideoCardComponent
   ],
   imports: [
     CommonModule,
@@ -42,6 +44,7 @@ import { RouterModule } from '@angular/router';
     HeaderComponent,
     CourseComponent,
     ButtonComponent,
+    VideoCardComponent,
     AppInputComponent,
   ],
 })

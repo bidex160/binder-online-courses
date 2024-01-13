@@ -3,7 +3,7 @@ import { DashboardComponent } from './dashboard.component';
 import { ComponentsModule } from '../components/components.module';
 import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
-import { DashboardService } from '../../services/dashboard.service';
+import { CourseService } from '../../services/course.service';
 import { NetworkService } from '../../services/network.service';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
@@ -17,6 +17,6 @@ import { MatIconModule } from '@angular/material/icon';
     MatPaginatorModule,
     MatIconModule,
   ],
-  providers: [DashboardService, NetworkService],
+  providers: [CourseService, NetworkService],
 })
 export class DashboardModule {}
