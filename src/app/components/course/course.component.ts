@@ -13,9 +13,7 @@ export class CourseComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
-    // console.log(this.course);
-  }
+  ngOnInit(): void {}
 
   get tags() {
     return this.course.tags.join(', ');

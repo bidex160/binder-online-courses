@@ -1,0 +1,18 @@
+.radios app-input:not(:first-child) {
+  margin-left: 15px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  text-align: center;
+}
+.action {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+app-input {
+  margin-bottom: 15px;
+}

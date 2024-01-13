@@ -1,13 +1,13 @@
 <ng-container [ngSwitch]="type" [formGroup]="form">
   <!-- SELECT -->
   <ng-container *ngSwitchCase="'select'">
-    <div class="dropdown" [ngClass]="{ readonly: readonly }">
+    <div class="input dropdown" [ngClass]="{ readonly: readonly }">
       <mat-select
         class="myPanelClass"
         [disableOptionCentering]="true"
         [placeholder]="placeholder || 'Select'"
         [formControlName]="name"
-        (selectionChange)="onSelect($event)"
+        (selectchange)="onSelect($event)"
       >
         <mat-option [value]="null">None</mat-option>
         <mat-option *ngFor="let option of __option" [value]="option.value">
@@ -23,8 +23,45 @@
         [formControlName]="name"
         [required]="required"
         [readonly]="readonly"
-        (ionChange)="inputChange($event)"
+        [maxlength]="maxlength"
+        rows="4"
+        cols="50"
+        (change)="inputChange($event)"
       ></textarea>
+    </div>
+  </ng-container>
+
+  <!-- Radio -->
+  <ng-container *ngSwitchCase="'radio'">
+    <div [class]="'d-flex radio'" [ngClass]="{ readonly: readonly }">
+      <input
+        [type]="type"
+        [formControlName]="name"
+        [name]="name"
+        [required]="required"
+        [readonly]="readonly"
+        [value]="_value"
+        [checked]="isChecked"
+        (change)="inputChange(this)"
+      />
+      <label>{{ placeholder }} </label>
+    </div>
+  </ng-container>
+
+  <!-- CheckBox -->
+  <ng-container *ngSwitchCase="'checkbox'">
+    <div [class]="'d-flex checkbox'" [ngClass]="{ readonly: readonly }">
+      <input
+        [type]="type"
+        [formControlName]="name"
+        [name]="name"
+        [required]="required"
+        [readonly]="readonly"
+        [value]="_value"
+        [checked]="isChecked"
+        (change)="inputChange(this)"
+      />
+      <label>{{ placeholder }} </label>
     </div>
   </ng-container>
 
@@ -43,7 +80,7 @@
           placeholder="{{ placeholder }}"
           [required]="required"
           [readonly]="readonly"
-          (ionChange)="inputChange($event)"
+          (change)="inputChange($event)"
           value="{{ __value }}"
         />
         <div class="password-icon" (click)="showPassword = !showPassword">
@@ -70,7 +107,8 @@
         [formControlName]="name"
         [readonly]="readonly"
         value="{{ __value }}"
-        (ionChange)="inputChange($event)"
+        [maxlength]="maxlength"
+        (change)="inputChange($event)"
       />
     </div>
   </ng-container>

@@ -6,7 +6,9 @@ export type InputType =
   | 'text'
   | 'password'
   | 'email'
-  | 'textarea';
+  | 'textarea'
+  | 'radio'
+  | 'checkbox';
 
 export type ButtonType =
   | 'primary'
@@ -15,8 +17,8 @@ export type ButtonType =
   | 'danger'
   | 'success';
 
-  export type CourseAction =
-    | 'cart'
-    | 'wishlist'
-    | 'removeCart'
-    | 'removeWishList';
+export type CourseAction =
+  | 'cart'
+  | 'wishlist'
+  | 'removeCart'
+  | 'removeWishList';
