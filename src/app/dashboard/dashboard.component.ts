@@ -54,6 +54,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.paginator.page.subscribe((r) => {
+      this.perPage = r.pageSize;
       this.pageIndex = r.pageIndex + 1;
     });
   }

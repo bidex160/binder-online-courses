@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Course, CourseButton } from '../../models/course';
 import { StorageService } from '../../services/storage.service';
 import { UtilityService } from '../../services/utils.service';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-wishlist',
@@ -9,6 +10,7 @@ import { UtilityService } from '../../services/utils.service';
   styleUrl: './wishlist.component.css',
 })
 export class WishlistComponent implements OnInit {
+  @ViewChild('paginator') paginator: MatPaginator;
   wishlist: Course[] = [];
   pageIndex: number = 1;
   perPage: number = 4;
@@ -33,6 +35,13 @@ export class WishlistComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchWishList();
+  }
+
+  ngAfterViewInit() {
+    this.paginator.page.subscribe((r) => {
+      this.perPage = r.pageSize;
+      this.pageIndex = r.pageIndex + 1;
+    });
   }
 
   get paginatedCourses() {

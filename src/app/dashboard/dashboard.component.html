@@ -29,7 +29,7 @@
   <mat-paginator
     [length]="courses.length"
     #paginator
-    [hidePageSize]="true"
+    [pageSizeOptions]="[4, 8, 12]"
     [pageSize]="perPage"
     showFirstLastButtons
   ></mat-paginator>
