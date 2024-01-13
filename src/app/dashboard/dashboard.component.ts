@@ -1,6 +1,5 @@
 import {
   AfterViewInit,
-  ChangeDetectorRef,
   Component,
   OnInit,
   ViewChild,
@@ -44,7 +43,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   constructor(
     private dashboardService: DashboardService,
-    private cdref: ChangeDetectorRef,
     private storageService: StorageService,
     private utils: UtilityService
   ) {}
@@ -63,8 +61,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     this.paginator.page.subscribe((r) => {
       this.pageIndex = r.pageIndex + 1;
     });
-
-    this.cdref.detectChanges();
   }
 
   get paginatedCourses() {

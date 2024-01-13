@@ -1,0 +1,5 @@
+@media (min-width: 768px) {
+  .courses {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+}

@@ -1,0 +1,15 @@
+<div class="banner">My Wish List</div>
+<div class="course-section">
+  <div class="courses">
+    <ng-container *ngFor="let course of paginatedCourses; let i = index">
+      <app-course [course]="course" [actions]="actions"></app-course>
+    </ng-container>
+  </div>
+  <mat-paginator
+    [length]="wishlist.length"
+    #paginator
+    [hidePageSize]="true"
+    [pageSize]="perPage"
+    showFirstLastButtons
+  ></mat-paginator>
+</div>
