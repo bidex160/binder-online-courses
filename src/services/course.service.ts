@@ -1,6 +1,4 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { error } from 'console';
 import { NetworkService } from './network.service';
 import { BehaviorSubject } from 'rxjs';
 

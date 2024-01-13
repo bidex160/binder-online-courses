@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WishlistComponent } from './wishlist.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('WishlistComponent', () => {
   let component: WishlistComponent;
@@ -8,16 +10,18 @@ describe('WishlistComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [WishlistComponent]
-    })
-    .compileComponents();
-    
+      declarations: [WishlistComponent],
+      imports: [MatPaginatorModule, BrowserAnimationsModule],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(WishlistComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    const fixture = TestBed.createComponent(WishlistComponent);
+    const app = fixture.componentInstance;
+    expect(app).toBeTruthy();
   });
 });

@@ -8,16 +8,17 @@ describe('CheckoutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CheckoutComponent]
-    })
-    .compileComponents();
-    
+      declarations: [CheckoutComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(CheckoutComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    const fixture = TestBed.createComponent(CheckoutComponent);
+    const app = fixture.componentInstance;
+    expect(app).toBeTruthy();
   });
 });

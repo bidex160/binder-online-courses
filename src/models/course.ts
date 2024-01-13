@@ -6,7 +6,7 @@ export interface Course {
   author: string;
   actualPrice: string;
   discountPercentage: string;
-  tags: string[];
+  tags: string[] | number[];
 }
 
 export interface CourseButton {

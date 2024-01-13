@@ -8,10 +8,9 @@ describe('VideoCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [VideoCardComponent]
-    })
-    .compileComponents();
-    
+      declarations: [VideoCardComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(VideoCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

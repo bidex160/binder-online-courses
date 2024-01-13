@@ -37,7 +37,7 @@ export class CourseComponent implements OnInit {
    * get if course is discounted
    */
   get discounted() {
-    return (
+    return !!(
       this.course.discountPercentage != '0' && this.course.discountPercentage
     );
   }
