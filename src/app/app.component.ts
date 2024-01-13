@@ -24,6 +24,4 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {
-  title = 'binder-online-courses';
-}
+export class AppComponent {}

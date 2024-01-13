@@ -1,4 +1,4 @@
-<div class="book">
+<div class="book" *ngIf="course">
   <img
     src="https://m.media-amazon.com/images/I/81ehEnDuFmL._AC_UL640_FMwebp_QL65_.jpg"
   />
@@ -20,9 +20,13 @@
     </ng-container>
   </div>
   <div class="details">
-    <mat-icon [routerLink]="['/course-details']" [queryParams]="{ id: course.id }">arrow_right_alt</mat-icon>
+    <mat-icon
+      [routerLink]="['/course-details']"
+      [queryParams]="{ id: course.id }"
+      >arrow_right_alt</mat-icon
+    >
   </div>
-  <div *ngIf="course?.tags?.length" class="tags">
+  <div *ngIf="course?.tags?.length" class="tags" id="tag">
     tags: <span>{{ tags }}</span>
   </div>
 </div>
