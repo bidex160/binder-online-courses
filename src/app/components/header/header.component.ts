@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Course } from '../../../models/course';
 import { StorageService } from '../../../services/storage.service';
 import { UtilityService } from '../../../services/utils.service';
@@ -11,6 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
+  @Output() toggleNav: EventEmitter<any> = new EventEmitter();
   constructor(
     private storageService: StorageService,
     private utils: UtilityService,
@@ -33,5 +34,9 @@ export class HeaderComponent {
 
   login() {
     this.dialog.open(LoginComponent, {});
+  }
+
+  openSideBar() {
+    this.toggleNav.emit();
   }
 }

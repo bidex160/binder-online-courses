@@ -4,10 +4,15 @@
 /* @import "~bootstrap/dist/css/bootstrap.css";
 @import "~bootstrap-icons/font/bootstrap-icons.css"; */
 @font-face {
-  font-family: "Judson";
-  src: url("./assets/fonts/Judson-Regular.ttf");
+  font-family: "Montserrat";
+  src: url("./assets/fonts/Montserrat-VariableFont_wght.ttf");
 }
-
+* {
+  box-sizing: border-box;
+  margin: 0;
+  border: 0;
+  font-family: "Montserrat";
+}
 .mat-toolbar.mat-primary {
   --mat-toolbar-container-background-color: #fff !important;
   --mat-toolbar-container-text-color: #041654;
@@ -33,6 +38,17 @@
   .courses {
     grid-template-columns: repeat(4, 1fr);
     align-items: start;
+  }
+  .mat-toolbar-row {
+    padding: 0 1rem !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  .mat-toolbar-row {
+    padding: 0 1rem !important;
+  }
+  .course-section {
+    padding: 1rem !important;
   }
 }
 .mat-drawer-container {

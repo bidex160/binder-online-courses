@@ -1,5 +1,5 @@
 <div>
-  <app-header></app-header>
+  <app-header (toggleNav)="sidenav.toggle()"></app-header>
 
   <mat-sidenav-container fxFlexFill>
     <mat-sidenav #sidenav>
@@ -7,10 +7,10 @@
         <div class="mclose">
           <mat-icon mat-list-item>close</mat-icon>
         </div>
-        <div>  <a href="#courses" mat-button>Courses</a></div>
+        <div><a href="#courses" mat-button>Courses</a></div>
         <div><a href="/wish-list" mat-button>My Wish List</a></div>
-        <div> <a href="/cart-details" mat-button>Cart Details</a></div>
-         <div>  <a href="/profile" mat-button> My Profile</a></div>
+        <div><a href="/cart-details" mat-button>Cart Details</a></div>
+        <div><a href="/profile" mat-button> My Profile</a></div>
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content fxFlexFill>
