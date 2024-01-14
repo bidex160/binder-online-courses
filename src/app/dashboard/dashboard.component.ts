@@ -59,6 +59,9 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     });
   }
 
+  /**
+   * get courses per page
+   */
   get paginatedCourses() {
     if (!this.courses.length) return [];
     else {
@@ -75,65 +78,42 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     }
   }
 
+  /**
+   * add course to cart handler
+   * call addToCart function from utils service
+   * @param course  course to be added
+   */
   addToCart = (course: Course) => {
-    let savedcart = this.storageService.getItem('cart');
-    let cartList: Course[] = [course];
-    if (savedcart) {
-      let findCourse = savedcart.find(
-        (scourse: Course) => scourse.id == course.id
-      );
-      if (findCourse) {
-        this.utils.showSnackBar(
-          `Already exists in the cart.
-           \n ${course.courseName}`,
-          'danger'
-        );
-      } else {
-        cartList = [...cartList, ...savedcart];
-        this.storageService.saveItem('cart', cartList);
-        this.utils.showSnackBar(
-          'Course successfully added in the cart',
-          'success'
-        );
-      }
-    } else {
-      this.storageService.saveItem('cart', cartList);
-      this.utils.showSnackBar(
-        'Course successfully added in the cart',
-        'success'
-      );
-    }
+    this.utils
+      .addToCart(course)
+      .then((r: any) => {
+        this.utils.showSnackBar(r.message, 'success');
+      })
+      .catch((err) => {
+        this.utils.showSnackBar(err.message, 'warning');
+      });
   };
 
+  /**
+   * add course to wishlist handler
+   * call addToWishList function from utils service
+   * @param course  course to be added
+   */
   addToWishList = (course: Course) => {
-    let savedWishList = this.storageService.getItem('wishlist');
-    let wishlist: Course[] = [course];
-    if (savedWishList) {
-      let findCourse = savedWishList.find(
-        (scourse: Course) => scourse.id == course.id
-      );
-      if (findCourse) {
-        this.utils.showSnackBar(
-          `Already exists in the wishlist. \n ${course.courseName}`,
-          'danger'
-        );
-      } else {
-        wishlist = [...wishlist, ...savedWishList];
-        this.storageService.saveItem('wishlist', wishlist);
-        this.utils.showSnackBar(
-          'Course successfully added in the wishlist',
-          'success'
-        );
-      }
-    } else {
-      this.storageService.saveItem('wishlist', wishlist);
-      this.utils.showSnackBar(
-        'Course successfully added in the wishlist',
-        'success'
-      );
-    }
+    this.utils
+      .addToWishList(course)
+      .then((r: any) => {
+        this.utils.showSnackBar(r.message, 'success');
+      })
+      .catch((err) => {
+        this.utils.showSnackBar(err.message, 'warning');
+      });
   };
 
+  /**
+   * arrange courses base on price ascending or descending order
+   * @param range  lowest to highest / highest to lowest
+   */
   filterByPriceRnge(range: string) {
     if (range?.toLowerCase()?.includes('lowest')) {
       this.courses.sort((a, b) => {

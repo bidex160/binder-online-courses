@@ -8,10 +8,14 @@
   <div class="col-md-2">
     <div class="" *ngIf="courses?.length">
       <h3>CART TOTALS</h3>
-      <p>Subtotal <span>₦20.00</span></p>
-      <h2>Total <span> ₦20.00</span></h2>
+      <p>
+        Subtotal <span> ₹ {{ totalPrice }} </span>
+      </p>
+      <h2>
+        Total <span> ₹ {{ totalPrice }} </span>
+      </h2>
       <app-button
-        (mclick)="proceedoCheckout()"
+        (mclick)="proceedToCheckout()"
         text="Proceed to Checkout"
         [type]="'primary'"
       ></app-button>
