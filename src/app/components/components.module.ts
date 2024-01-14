@@ -17,6 +17,7 @@ import { RouterModule } from '@angular/router';
 import { VideoCardComponent } from './video-card/video-card.component';
 import { ResponseModalComponent } from './response-modal/response-modal.component';
 import { LoginComponent } from './login/login.component';
+import { FlexLayoutServerModule } from '@angular/flex-layout/server';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { LoginComponent } from './login/login.component';
     MatSidenavModule,
     MatListModule,
     FlexLayoutModule,
+    FlexLayoutServerModule,
     MatDialogModule,
     ReactiveFormsModule,
     RouterModule,
