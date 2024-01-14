@@ -1,9 +1,0 @@
-button {
-  border-radius: 10px !important;
-  border: none;
-  outline: none;
-  font-size: 14px;
-}
-button:disabled {
-  opacity: 0.4;
-}
