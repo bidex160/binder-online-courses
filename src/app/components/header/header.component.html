@@ -16,7 +16,13 @@
         <span id="cartCount"> {{ cartCount }}</span>
       </div>
     </div>
-    <button class="menu" mat-icon-button fxShow="true" fxHide.gt-sm>
+    <button
+      class="menu"
+      mat-icon-button
+      fxShow="true"
+      fxHide.gt-sm
+      (click)="openSideBar()"
+    >
       <mat-icon>menu</mat-icon>
     </button>
   </mat-toolbar-row>
